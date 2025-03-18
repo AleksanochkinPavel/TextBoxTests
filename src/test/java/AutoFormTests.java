@@ -9,13 +9,14 @@ import static com.codeborne.selenide.files.DownloadActions.click;
 
 public class AutoFormTests {
     @BeforeAll
-    static void beforeAll() {
-        Configuration.pageLoadStrategy ="eager";
-        Configuration.browserSize ="1920x1080";
-        Configuration.baseUrl="https://demoqa.com";
+    static void setupConfig() {
+        Configuration.pageLoadStrategy = "eager";
+        Configuration.browserSize = "1920x1080";
+        Configuration.baseUrl = "https://demoqa.com";
     }
+
     @Test
-    public void fillFormTest () {
+    public void fillFormTest() {
 
         open("/automation-practice-form");
         executeJavaScript("$('#fixedban').remove()");
@@ -37,15 +38,14 @@ public class AutoFormTests {
         $("#city").click();
         $("#city").$(byText("Noida")).click();
         $("#submit").click();
-       $(".table-responsive").shouldHave(text("Pavel Aleksanochkin"));
-       $(".table-responsive").shouldHave(text("Aleksanochkin@gmail.com"));
-       $(".table-responsive").shouldHave(text("Male"));
-       $(".table-responsive").shouldHave(text("7912312312"));
-       $(".table-responsive").shouldHave(text("03 April,1996"));
-       $(".table-responsive").shouldHave(text("Sports"));
-       $(".table-responsive").shouldHave(text("Исх. № ФС-3.25 от 22.01.pdf"));
-       $(".table-responsive").shouldHave(text("Moscow Never Sleeps"));
-       $(".table-responsive").shouldHave(text("NCR Noida"));
-       sleep(5000);
-           }
+        $(".table-responsive").shouldHave(text("Pavel Aleksanochkin"));
+        $(".table-responsive").shouldHave(text("Aleksanochkin@gmail.com"));
+        $(".table-responsive").shouldHave(text("Male"));
+        $(".table-responsive").shouldHave(text("7912312312"));
+        $(".table-responsive").shouldHave(text("03 April,1996"));
+        $(".table-responsive").shouldHave(text("Sports"));
+        $(".table-responsive").shouldHave(text("Исх. № ФС-3.25 от 22.01.pdf"));
+        $(".table-responsive").shouldHave(text("Moscow Never Sleeps"));
+        $(".table-responsive").shouldHave(text("NCR Noida"));
+    }
 }
